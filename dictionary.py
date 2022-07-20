@@ -99,5 +99,31 @@ print(any_dict2)
 '''
 
 dic1 ={"day1":"Sunday","day2":"Monday"}
-dic1 ={"day3":"Wednesday","day4":"Tuesday"}
+dic2 ={"day3":"Wednesday","day4":"Tuesday"}
 
+dic3= dic1.copy()
+
+# add value to dic3 
+dic3["day5"]=["Nice day","Rainny Day"]
+dic3["all_days"]=["day1","day2","day3"]
+print(dic3)
+
+#dic1.update(dic2) method
+print(dic1)
+dic1.update(dic2)
+print(dic1)
+
+#pop(key) method
+popped_item=dic1.pop("day1")
+print(dic1)
+print(popped_item)
+
+'''
+7) fromkeys, get, clear and copy method
+--> days=dict.fromkeys(["day1","day2","day3"], "unknown") # can use tuple and string too
+--> get method:
+ex: days["apple"] --> error but days.get("day1") --> no error and result too
+--> if days.get("day1"): print present else absent
+ex: if None: is treated as False else True
+--> days.clear() ; days.copy() ; is vs == 
+'''
