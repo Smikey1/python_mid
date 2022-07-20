@@ -127,3 +127,57 @@ ex: days["apple"] --> error but days.get("day1") --> no error and result too
 ex: if None: is treated as False else True
 --> days.clear() ; days.copy() ; is vs == 
 '''
+
+#fromkeys(keys,value) method
+days=dict.fromkeys(["day1","day2","day3"], "unknown")
+print(days)
+
+# print(days["day5"]) --> Error 404
+print(days.get("day3")) #--> Do not give Error 404
+print(days.get("day5")) #--> Do not give Error 404
+
+if any_dict.get("address"):
+    print("Present")
+else:
+    print("Not Present")
+
+
+'''
+8) More about dictionary:
+--> get method:
+ex: days["apple"] --> error but days.get("day7","Not Found") --> no error and result too
+		  --> get method always took last/updated value when same keys are present in dictionary
+'''
+print(days.get("day5","Sorry! your value was not Found")) #--> Do not give Error 404
+
+user_info = {"fname":"Arayama","lname":"Sharma","age":30,"age":17}
+print(user_info.get("age"))
+
+"""
+Excercises:
+
+1) Excercise 1:
+--> ask a num to user and define a function which return the dictinary of cube to that number.
+{1:1,2:8,--->n:n**3}
+
+2)Excercise 2: 
+modify and optimize word counter of your name:
+"""
+
+user_number = int(input("enter a number"))
+
+def cube(number):
+    new_dict={}
+    for i in range(number+1):
+        new_dict[i]=i**3
+    return new_dict
+
+print(cube(user_number))    
+
+def countchar(name):
+    new_dict={}
+    for char in name:
+        new_dict[char]= name.lower().count(char)
+    return new_dict
+
+print(countchar("aryama"))    
