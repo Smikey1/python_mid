@@ -80,3 +80,33 @@ def cube_off(num):
 
 to_power = cube_off(4)
 print(to_power(3))
+
+
+'''
+------------> Decorators 1 <-------------
+------------------------------------------
+It enhance the functionality of other functions.
+Why we need this?
+'''
+def decorator_function(any_function):
+	def wrapper_function():
+		print('This is extra function')
+		any_function()
+	return wrapper_function
+# Extra line --> 'This is extra function'
+def fun1(): 
+	print("function-->1")
+
+# Extra line --> 'This is extra function'
+@decorator_function
+def fun2(): 
+	print("function-->2")
+
+fun1()
+# Now, to define decorators functions,
+
+# func = decorator_function(fun2)
+# func()
+
+fun2()
+## Syntactic Sugar in python symbol --> @ use for decorator
