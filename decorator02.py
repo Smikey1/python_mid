@@ -160,7 +160,7 @@ def which_data_allow(data_type):
         return wrapper_function
     return decorator_function
 
-@which_data_allow(int)
+@which_data_allow(str)
 def string_join(*args):
 	joined_string = ""
 	for i in args:
