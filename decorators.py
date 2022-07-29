@@ -110,3 +110,6 @@ fun1()
 
 fun2()
 ## Syntactic Sugar in python symbol --> @ use for decorator
+
+
+
