@@ -30,7 +30,7 @@ def add_two_num(num1,num2):
     return num1+num2
 
 # func2(5)
-print(add_two_num(3,5))
+# print(add_two_num(3,5))
 # print(decorator_function())
 
 
@@ -43,6 +43,7 @@ Why we need this?
 
 #importing module
 from functools import wraps
+import re
 def decorator_function3(any_function):
 	@wraps(any_function)
 	def wrapper_function(*args,**kwargs):
@@ -56,11 +57,12 @@ def decorator_function3(any_function):
 def add(a,b):  # return 
 	''' this is add function '''
 	return a+b 
-
+'''
 add(2,3)
 print(add(2,4))
 print(add.__name__) 
 print(add.__doc__) # print the doc string of wrapper function (problem)
+'''
 
 # Now, to solve import wraps module from functools,
 
@@ -109,3 +111,60 @@ def sq_finder(n):
 	return [i**2 for i in range(1,n+1)]
 
 sq_finder(500)
+
+# Decorator practice 3
+
+'''def only_int_allowed(any_function):
+    @wraps(any_function)
+    def wrapper_function(*args,**kwargs):
+        stored_data_type=[]
+        for arg in args:
+            stored_data_type.append(type(arg)==int)
+        if all(stored_data_type):
+            return any_function(*args,**kwargs)
+        else:
+            print("Only int is allowed")
+    return wrapper_function'''
+ 
+def only_int_allowed(any_function):
+    @wraps(any_function)
+    def wrapper_function(*args,**kwargs):
+        if all([type(arg)==int for arg in args]):
+            return any_function(*args,**kwargs)
+        else:
+            print("Only int is allowed")
+    return wrapper_function
+
+
+@only_int_allowed
+def add_func2(*args):
+	total=0
+	for i in args:
+		total += i
+	return total
+
+print(add_func2(1,2,3,4,5))
+
+# Decorator practice 4
+
+## Decorators with argument:
+
+def which_data_allow(data_type):
+    def decorator_function(any_function):
+        @wraps(any_function)
+        def wrapper_function(*args,**kwargs):
+            if all([type(arg)==data_type for arg in args]):
+                return any_function(*args,**kwargs)
+            else:
+                print("Only string is allowed")
+        return wrapper_function
+    return decorator_function
+
+@which_data_allow(int)
+def string_join(*args):
+	joined_string = ""
+	for i in args:
+		joined_string += i
+	return joined_string
+
+print(string_join("Kritika"," Deo")) 
