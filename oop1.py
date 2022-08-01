@@ -1,7 +1,7 @@
 '''
 
------------->  OOP  <---------------------
-------------------------------------------
+------------>  OOP Part 1 <---------------------
+------------------------------------------------
 --> It is a just way or style to write a code
 --> It is very helpful in creation of real world programs
 --> CLASS, OBJECT(Instance),method
