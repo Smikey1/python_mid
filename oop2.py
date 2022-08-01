@@ -106,3 +106,37 @@ class SmartPhone(Phone): #base class / #parent class
         return f"Opening {browser_name} browser"
 '''
 
+#3 -->  Multiple inheritance
+
+class A:
+    def class_a_method(self):
+        print('Hello I\'m Class A Method')
+    
+    def my_method(self):
+        print("This is my A method")
+
+class B:
+    def class_b_method(self):
+        print('Hello I\'m Class B Method')
+    
+    def my_method(self):
+        print("This is my B method")
+
+class C(B,A):
+    pass
+
+object_a = A()
+object_b = B()
+object_c = C()
+
+print(object_a.class_a_method())
+print(object_b.class_b_method())
+
+print(object_c.class_a_method())
+print(object_c.class_b_method())
+
+print(object_c.my_method()) 
+
+
+print(help(C)) #--> give Method Resolution Order (MRO) 
+print(C.mro()) #--> same
